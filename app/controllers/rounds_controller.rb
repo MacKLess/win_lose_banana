@@ -29,4 +29,8 @@ class RoundsController < ApplicationController
     end
   end
 
+private
+  def round_params
+    params.require(:round).permit(:outcome)
+  end
 end

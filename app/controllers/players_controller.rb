@@ -7,7 +7,7 @@ class PlayersController < ApplicationController
 
   def create
     @game = Game.find(params[:game_id])
-    @player = Player.new(player_params)
+    @player = @game.players.new(player_params)
     if @player.save
       flash[:notice] = "Welcome Player!"
       redirect_to game_path(@game)
@@ -29,4 +29,8 @@ class PlayersController < ApplicationController
     end
   end
 
+private
+  def player_params
+    params.require(:player).permit(:name, :active)
+  end
 end
