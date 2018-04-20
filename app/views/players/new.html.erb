@@ -1,0 +1,9 @@
+<h1>Issue the Banana Challenge</h1>
+
+  <%= form_for [@game, @player] do |f| %>
+    <div class="new-player form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <%= f.submit "Enter", class: "btn btn-primary" %>
+  <% end %>

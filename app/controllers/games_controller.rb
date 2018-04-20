@@ -12,7 +12,7 @@ class GamesController < ApplicationController
     @game = Game.new
     if @game.save
       flash[:notice] = "Play nice!"
-      redirect_to game_path(@game)
+      redirect_to new_game_player_path(@game)
     else
       flash[:alert] = "Yes, we have no bananas!"
       render :new
